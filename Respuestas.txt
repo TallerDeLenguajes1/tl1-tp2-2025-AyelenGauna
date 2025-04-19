@@ -1,0 +1,27 @@
+- Después de hacer el commit en el Branch Opcion_2 salte a la línea main utilizando el comando "git checkout main".
+  Inspeccione la carpeta donde inicializó el repositorio ¿Puede ver el archivo tp2_1_2.c? ¿Por qué?
+
+No, no puedo ver el archivo tp2_1_2.c si está en la rama main, porque ese archivo 
+está en la rama Opcion_2 y Git mantiene los archivos de cada rama aislados de las demás.
+Cada rama en Git tiene su propio historial de commits y su propio conjunto de archivos.
+El archivo tp2_1_2.c solo existe en la rama Opcion_2 porque se lo creó y comiteó solo en esa rama.
+Cuando cambiamos a otra rama, solo se verá los archivos que están presentes en esa rama, no los de otras ramas.
+Así que cuando se vuelve a la rama main, el archivo tp2_1_2.c no existe allí porque no se ha hecho commit en esa rama.
+
+- En la rama main agregue un nuevo archivo que se llame Respuestas.txt y realice un commit para agregar este archivo 
+  al repositorio. En VSCode vuelva al “Source Control” ¿Qué diferencias nota?
+
+Después de crear el archivo Respuestas.txt en la rama main y hacer el commit, en la vista de “Source Control” de VSCode, 
+se puede ver que el historial de cambios muestra una diferencia entre las ramas. Ahora la rama main tiene un cambio nuevo
+que no está en la rama Opcion_2. Esto significa que el historial de main avanzó un paso más. En el gráfico se nota que las
+dos ramas ya no están en el mismo punto: la rama main sigue creciendo con nuevos cambios, y la rama Opcion_2 se quedó
+en el lugar donde fue creada. Esto se ve como si las ramas se separaran en caminos distintos, y ayuda a ver qué cambios
+tiene cada una por separado.
+
+- En el Branch main se va a combinar (merge) ambos repositorios. En VSCode vuelva al “Source Control” vea los cambios, ¿Qué nota?
+
+Después de usar el comando " git merge Opcion_2 -m "merge Opcion_2" " en la rama main, se combinan los cambios de la rama Opcion_2 con los de main.
+Al volver a la vista de “Source Control” en VSCode, se puede ver que el historial de ambas ramas ahora está unido. Es decir, ya no se ven como 
+caminos separados, sino que los cambios de Opcion_2 ahora forman parte del historial de main. También aparece un nuevo commit llamado “merge Opcion_2”,
+que indica que se hizo una combinación entre las dos ramas. Esto confirma que los archivos y cambios hechos en Opcion_2 ahora también están presentes en main.
+
