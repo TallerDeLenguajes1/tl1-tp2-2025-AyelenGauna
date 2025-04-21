@@ -28,10 +28,36 @@ int generarCantidadNucleos (){
 }
 
 void listarPcs(compu pcs[], int cantidad){
+    printf("\n----- CARACTERISTICAS DE PCs -----\n");
     for (int i = 0; i < cantidad; i++)
     {
-        printf("PC %d\nVelocidad: %d\tAnio de fabricacion: %d\tCantidad de nucleos: %d\tTipo de procesador: %s\n\n", i+1, pcs[i].velocidad, pcs[i].anio, pcs[i].cantidad_nucleos, pcs[i].tipo_cpu);
+        printf("PC %d\nVelocidad: %d\tAnio de fabricacion: %d\tCantidad de nucleos: %d\tTipo de procesador: %s\n", i+1, pcs[i].velocidad, pcs[i].anio, pcs[i].cantidad_nucleos, pcs[i].tipo_cpu);
     }
+}
+
+void mostrarMasVieja(compu pcs[], int cantidad){
+    printf("\n----- PC MAS VIEJA -----\n");
+    int anio = 2025;
+    compu vieja;
+    for (int i = 0; i < cantidad; i++)
+    {
+        if (pcs[i].anio < anio)
+        {
+            vieja = pcs[i];
+            anio = pcs[i].anio;
+        }        
+    }
+
+    for (int i = 0; i < cantidad; i++)
+    {
+        if (pcs[i].anio == vieja.anio)
+        {
+            printf("PC %d\nVelocidad: %d\tAnio de fabricacion: %d\tCantidad de nucleos: %d\tTipo de procesador: %s\n", i+1, pcs[i].velocidad, pcs[i].anio, pcs[i].cantidad_nucleos, pcs[i].tipo_cpu);
+            break;
+        }
+        
+    }
+    
 }
 
 int main (){
@@ -49,6 +75,7 @@ int main (){
     }
     
     listarPcs(PCs,CANT_COMPUS);
+    mostrarMasVieja(PCs,CANT_COMPUS);
     
     return 0;
 }
