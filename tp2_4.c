@@ -20,11 +20,18 @@ int generarVelocidad (){
 }
 
 int generarYear (){
-    return 2015 + rand() % 2024;
+    return 2015 + rand() % (2024-2015+1);
 }
 
 int generarCantidadNucleos (){
     return 1 + rand() % 8;
+}
+
+void listarPcs(compu pcs[], int cantidad){
+    for (int i = 0; i < cantidad; i++)
+    {
+        printf("PC %d\nVelocidad: %d\tAnio de fabricacion: %d\tCantidad de nucleos: %d\tTipo de procesador: %s\n\n", i+1, pcs[i].velocidad, pcs[i].anio, pcs[i].cantidad_nucleos, pcs[i].tipo_cpu);
+    }
 }
 
 int main (){
@@ -40,7 +47,8 @@ int main (){
 
         PCs[i] = PC;
     }
-     
+    
+    listarPcs(PCs,CANT_COMPUS);
     
     return 0;
 }
