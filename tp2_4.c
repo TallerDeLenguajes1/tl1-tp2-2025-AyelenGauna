@@ -2,12 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define CANT_COMPUS 5
+
 typedef struct{ 
     int velocidad;      // Velocidad de procesamiento en GHz (valor entre 1 y 3) 
     int anio;           // Año de fabricación (valor entre 2015 y 2024) 
     int cantidad_nucleos; // Cantidad de núcleos (valor entre 1 y 8) 
     char *tipo_cpu;     // Tipo de procesador (apuntador a cadena de caracteres) 
 }compu; 
+
+compu PCs[CANT_COMPUS];
 
 char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
 
@@ -25,12 +29,18 @@ int generarCantidadNucleos (){
 
 int main (){
     srand(time(NULL));
-    compu PC = {
-        generarVelocidad(),
-        generarYear(),
-        generarCantidadNucleos(),
-        tipos[rand()%6]
-    }; 
+    for (int i = 0; i < CANT_COMPUS; i++)
+    {
+        compu PC= {
+            generarVelocidad(),
+            generarYear(),
+            generarCantidadNucleos(),
+            tipos[rand()%6]
+        };
+
+        PCs[i] = PC;
+    }
+     
     
     return 0;
 }
